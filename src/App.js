@@ -7,6 +7,7 @@ class App extends Component {
   getRecipe = (e) => {
     e.preventDefault();
     const recipeName = e.target.elements.recipe.value;
+    e.target.elements.recipe.value = '';
     console.log(recipeName);
   }
   render(){
