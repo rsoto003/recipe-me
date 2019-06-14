@@ -18,7 +18,8 @@ class App extends Component {
       recipes: recipe_data.recipes
     });
 
-    console.table(this.state.recipes)
+    // console.table(this.state.recipes);
+    console.log(this.state.recipes)
     // const recipeName = e.target.elements.recipe.value;
     e.target.elements.recipe.value = 'Search for another recipe...';
   }
@@ -28,9 +29,16 @@ class App extends Component {
         <Navbar/>
         <Form getRecipe={this.getRecipe}/>
         { this.state.recipes.map( (recipe) => {
-          return <p className="border border-black">
-                <img src={ recipe.image_url} />
-                </p>
+          return <div key={recipe.recipe_id} className="row">
+                <div className="card col-xl-4 col-lg-4 col-md-6">
+                  <img src={recipe.image_url} className="card-img-top" alt="..."/>
+                  <div className="card-body">
+                    <h5 className="card-title">{recipe.title}</h5>
+                    <p className="card-text"></p>
+                    <a href={recipe.source_url} className="btn btn-primary">I'm eating this!</a>
+                  </div>
+                </div>
+          </div>
         }) }
       </div>
     );
