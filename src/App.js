@@ -30,17 +30,19 @@ class App extends Component {
         <Navbar/>
         <Form getRecipe={this.getRecipe}/>
         <div className="container">
-        <div className="row col-xl-12">
-          <div className="col-md-6 col-lg-4 col-xl-4 col-lg-4">
+        <div className="row col-xl-12 mt-3">
             {this.state.recipes.map( recipe => {
-              return <div key={recipe.recipe_id} className="card mb-3">
-                      <img className="card-img-top" src={recipe.image_url} alt={recipe.publisher}/>
-                      <div className="card-body">
-                        <h5 className="card-title"> {recipe.title}</h5>
+              return <div className="col-md-6 col-lg-4 col-xl-4 col-lg-4" key={recipe.recipe_id}>
+                        <div className="card mb-3">
+                        <img className="card-img-top" src={recipe.image_url} alt={recipe.publisher}/>
+                        <div className="card-body">
+                          <h5 className="card-title"> {recipe.title}</h5>
+                          <a className="btn btn-info" href={recipe.source_url}>Recipe Me!</a>
+                        </div>
                       </div>
                      </div>
             })}
-          </div>
+          
         </div>
         </div>
       </div>
