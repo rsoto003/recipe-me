@@ -12,7 +12,7 @@ class App extends Component {
     e.persist();
     const api_key = '0b526b6bb7c7894d4d0a76610cfb9129';
     const recipeName = e.target.elements.recipe.value;
-    const recipe_call = await fetch(`https://www.food2fork.com/api/search?key=${api_key}&q=${recipeName}&count=10`);
+    const recipe_call = await fetch(`https://www.food2fork.com/api/search?key=${api_key}&q=${recipeName}&count=15`);
     const recipe_data = await recipe_call.json();
     // console.log(recipe_data.recipes[0].recipe_id);
     this.setState({
@@ -32,7 +32,7 @@ class App extends Component {
         <div className="container">
         <div className="row col-xl-12 mt-3">
             {this.state.recipes.map( recipe => {
-              return <div className="col-md-6 col-lg-4 col-xl-4 col-lg-4" key={recipe.recipe_id}>
+              return <div className="col-md-6 col-lg-4 col-xl-4 col-sm-6 col-xs-6" key={recipe.recipe_id}>
                         <div className="card mb-3">
                         <img className="card-img-top" src={recipe.image_url} alt={recipe.publisher}/>
                         <div className="card-body">
